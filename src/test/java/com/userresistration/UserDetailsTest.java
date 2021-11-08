@@ -48,4 +48,24 @@ public class UserDetailsTest {
 		Assert.assertFalse(result);
 	}
 
+	@Test
+	public void givenMobileNumber_CheckForValidation_ReturnTrue() {
+		UserDetails userDetails = new UserDetails();
+		boolean result = userDetails.validateMobileNumber("91 8766483622");
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void givenNumberWithoutCC_CheckForValidation_ReturnFalse() {
+		UserDetails userDetails = new UserDetails();
+		boolean result = userDetails.validateMobileNumber("8766483622");
+		Assert.assertFalse(result);
+	}
+
+	@Test
+	public void givenShortNumber_CheckForValidation_ReturnFalse() {
+		UserDetails userDetails = new UserDetails();
+		boolean result = userDetails.validateMobileNumber("98 876648");
+		Assert.assertFalse(result);
+	}
 }
