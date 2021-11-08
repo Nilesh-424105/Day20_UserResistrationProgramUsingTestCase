@@ -68,4 +68,18 @@ public class UserDetailsTest {
 		boolean result = userDetails.validateMobileNumber("98 876648");
 		Assert.assertFalse(result);
 	}
+
+	@Test
+	public void givenLongPassWord_CheckForValidation_ReturnTrue() {
+		UserDetails userDetails = new UserDetails();
+		boolean result = userDetails.validatePassword("Nilesh@77");
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void givenShortPassWord_CheckForValidation_ReturnFalse() {
+		UserDetails userDetails = new UserDetails();
+		boolean result = userDetails.validatePassword("Nilesh");
+		Assert.assertFalse(result);
+	}
 }
