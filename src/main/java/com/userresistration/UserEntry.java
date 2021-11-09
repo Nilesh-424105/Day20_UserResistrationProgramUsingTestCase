@@ -24,4 +24,9 @@ public class UserEntry {
 
 	}
 
+	public boolean validateEmail(String email) {
+		boolean result = Pattern.matches(EMAIL_PATTERN, email);
+		return result;
+	}
+
 }
